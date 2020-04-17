@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myphotoshop.TelaPrincipalController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="_Arquivo">
+                  <items>
+                        <MenuItem onAction="#evtAbrir" text="_Abrir">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem fx:id="bts" onAction="#evtSalvar" text="_Salvar">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem fx:id="btsc" onAction="#evtSalvarComo" text="Salvar _Como">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                    <MenuItem onAction="#evtFechar" text="_Fechar" />
+                  </items>
+                </Menu>
+                <Menu fx:id="btf" mnemonicParsing="false" text="_Ferramentas">
+                     <items>
+                        <Menu mnemonicParsing="false" text="Ferramentas Básicas">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#evtTonsCinza" text="Tom de Cinza" />
+                              <MenuItem mnemonicParsing="false" onAction="#evtEspelhaHori" text="Espelhar Horizontal" />
+                              <MenuItem mnemonicParsing="false" onAction="#evtEspelhaVerti" text="Espelhar Vertical" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="OpenCV">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#btBrilho" text="Brilho/Contraste" />
+                            <MenuItem mnemonicParsing="false" onAction="#evtGaussiano" text="Desfoque Gaussiano" />
+                              <MenuItem mnemonicParsing="false" onAction="#evtEscala" text="Escala" />
+                              <MenuItem mnemonicParsing="false" onAction="#evtBorda" text="Efeito Borda" />
+                              <MenuItem mnemonicParsing="false" onAction="#evtPanorama" text="Panorama" />
+                          </items>
+                        </Menu>
+                     </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="A_juda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#evtSobre" text="Sobre..." />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button fx:id="btsv" mnemonicParsing="false" onAction="#evtSalvar" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('icones/salvar.png'); -fx-background-repeat: no-repeat;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btsvc" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#evtSalvarComo" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('icones/salvarcomo.png');">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btvoltar" mnemonicParsing="false" onAction="#evtVoltar" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('icones/left.png');">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btir" mnemonicParsing="false" onAction="#evtIr" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('icones/right.png');">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btdesenhar" mnemonicParsing="false" onAction="#evtCaneta" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('icones/desenhar.png');">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ColorPicker fx:id="color" prefHeight="25.0" prefWidth="42.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ColorPicker>
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <ImageView fx:id="imageview" fitHeight="215.0" fitWidth="356.0" onMouseDragged="#evtDesenha" onMousePressed="#evtSegurar" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

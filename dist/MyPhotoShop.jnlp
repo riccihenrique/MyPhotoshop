@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MyPhotoShop.jnlp">
+  <information>
+    <title>MyPhotoShop</title>
+    <vendor>Aluno</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" java-vm-args="-Djava.library.path=D:\opencv\build\java\x64 "  href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="MyPhotoShop.jar" size="28282" download="eager" />
+    <jar href="lib\javacpp.jar" size="372427" download="eager" />
+    <jar href="lib\javacv.jar" size="404624" download="eager" />
+    <jar href="lib\opencv-2413.jar" size="452567" download="eager" />
+    <jar href="lib\opencv-windows-x86_64.jar" size="21772830" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="MyPhotoShop" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="myphotoshop.MyPhotoShop"  name="MyPhotoShop" />
+  <update check="always"/>
+</jnlp>
